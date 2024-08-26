@@ -1,0 +1,14 @@
+type TransactionResult = 
+ variant {
+   err: text;
+   ok: text;
+ };
+type Chain = text;
+type Balance = float64;
+service : {
+  authenticate: () -> (text);
+  getBalance: (Chain) -> (opt Balance);
+  getTokenUtilities: () -> (text);
+  initTestData: () -> ();
+  sendTransaction: (Chain, float64, text) -> (TransactionResult);
+}
